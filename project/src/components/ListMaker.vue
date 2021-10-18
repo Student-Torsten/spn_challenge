@@ -14,6 +14,9 @@
       Bruttopreis (incl. MwSt. ({{ vatRate }}%)): {{ grossPrice }} €
     </p>
     <button class="buy" @click="onClick($event, title)"></button>
+    <p v-if="shoppingCard.length != 0" class="shoppingCard">
+      Dieser Artikel befindet sich {{ shoppingCard.length }} Mal im Warenkorb.
+    </p>
   </div>
 </template>
 
@@ -133,5 +136,10 @@ export default {
 .buy:active {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 255, 0.5)),
     url("/public/card.jpeg");
+}
+.shoppingCard {
+  position: absolute;
+  top: 230px;
+  right: 20px;
 }
 </style>
