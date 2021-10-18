@@ -1,31 +1,30 @@
 <template>
-  <body>
-    <header>
+  <body class="body">
+    <header class="header">
       <h2>Produkte</h2>
     </header>
-
     <br />
-    <hr />
-    <table class="list">
-      <tbody>
-        <table-maker
+    <br />
+    <div class="page">
+      <article class="list">
+        <list-maker
           v-for="product in products"
           :key="product.id"
           v-bind="product"
         />
-      </tbody>
-    </table>
+      </article>
+    </div>
   </body>
 </template>
 
 <script>
-import TableMaker from "./TableMaker.vue";
+import listMaker from "./ListMaker.vue";
 import dataBase from "../api/database";
 
 export default {
   name: "ProductTable",
   components: {
-    TableMaker,
+    listMaker,
   },
 
   data() {
@@ -42,3 +41,18 @@ export default {
   },
 };
 </script>
+<style>
+.body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+
+.list {
+  position: relative;
+}
+.page {
+  width: 90%;
+}
+</style>
