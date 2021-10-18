@@ -14,8 +14,8 @@
       Bruttopreis (incl. MwSt. ({{ vatRate }}%)): {{ grossPrice }} €
     </p>
     <button class="buy" @click="onClick($event, title)"></button>
-    <p v-if="shoppingCard.length != 0" class="shoppingCard">
-      Dieser Artikel befindet sich {{ shoppingCard.length }} Mal im Warenkorb.
+    <p v-if="shoppingCart.length != 0" class="shoppingCart">
+      Dieser Artikel befindet sich {{ shoppingCart.length }} Mal im Warenkorb.
     </p>
   </div>
 </template>
@@ -46,13 +46,12 @@ export default {
   },
   methods: {
     onClick(event, eventObject) {
-      this.shoppingCard.push(eventObject);
-      console.log(this.shoppingCard);
+      this.shoppingCart.push(eventObject);
     },
   },
   data() {
     return {
-      shoppingCard: [],
+      shoppingCart: [],
     };
   },
 };
@@ -137,7 +136,7 @@ export default {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 255, 0.5)),
     url("/public/card.jpeg");
 }
-.shoppingCard {
+.shoppingCart {
   position: absolute;
   top: 230px;
   right: 20px;
