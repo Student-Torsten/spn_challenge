@@ -129,7 +129,7 @@ export default {
   height: 46px;
 }
 .buy:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 255, 0, 0.5)),
     url("/public/card.jpeg");
 }
 .buy:active {
