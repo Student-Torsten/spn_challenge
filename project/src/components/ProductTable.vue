@@ -6,8 +6,12 @@
     <br />
     <br />
     <div class="page">
+      <p v-if="shoppingCart.length != 0">
+        Article in your shopping cart: {{ shoppingCart.length }}.
+      </p>
       <article class="list">
         <list-maker
+          @addProduct="addProduct"
           v-for="product in products"
           :key="product.id"
           v-bind="product"
@@ -26,10 +30,15 @@ export default {
   components: {
     listMaker,
   },
-
+  methods: {
+    addProduct(eventObj) {
+      this.shoppingCart.push(eventObj);
+    },
+  },
   data() {
     return {
       products: [],
+      shoppingCart: [],
     };
   },
 

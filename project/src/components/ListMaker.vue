@@ -13,7 +13,7 @@
     <p class="grossPrice">
       Price (incl. VAT. ({{ vatRate }}%)): {{ grossPrice }} €
     </p>
-    <button class="buy" @click="onClick($event, title)"></button>
+    <button class="buy" @click="addProduct($event, title)"></button>
     <p v-if="shoppingCart.length != 0" class="shoppingCart">
       This article is already in your shopping cart ({{
         shoppingCart.length
@@ -47,10 +47,15 @@ export default {
     vatRate: { type: Number },
   },
   methods: {
-    onClick(event, eventObject) {
+    addProduct(event, eventObject) {
       this.shoppingCart.push(eventObject);
+      this.$emit("addProduct", {
+        title: eventObject,
+      });
     },
   },
+  emits: ["addProduct"],
+
   data() {
     return {
       shoppingCart: [],
