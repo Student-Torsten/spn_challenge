@@ -6,9 +6,12 @@
     <br />
     <br />
     <div class="page">
-      <p v-if="shoppingCart.length != 0">
-        Article in your shopping cart: {{ shoppingCart.length }}.
-      </p>
+      <div class="shoppingCounter">
+        <p v-if="shoppingCart.length != 0">
+          Article in your shopping cart: {{ shoppingCart.length }}.
+        </p>
+      </div>
+
       <article class="list">
         <list-maker
           @addProduct="addProduct"
@@ -57,9 +60,15 @@ export default {
   flex-direction: column;
   align-content: center;
 }
-
+.shoppingCounter {
+  height: 30px;
+  position: absolute;
+  width: 70%;
+  text-align: right;
+}
 .list {
   position: relative;
+  padding-top: 20px;
 }
 .page {
   width: 90%;
