@@ -1,7 +1,7 @@
 <template>
   <body class="body">
     <header class="header">
-      <h2>Produkte</h2>
+      <h2>Products</h2>
     </header>
     <br />
     <br />

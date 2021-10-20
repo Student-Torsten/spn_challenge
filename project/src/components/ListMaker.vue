@@ -3,19 +3,21 @@
     <div class="picture">
       <img alt="Picture" src="https://picsum.photos/200" />
     </div>
-    <p class="articleNumber">Artikel-Nummer: {{ id }}</p>
+    <p class="articleNumber">Article Number: {{ id }}</p>
     <header class="articleHeader">
       {{ title }}
     </header>
-    <p class="manufacturer">Hersteller: {{ manufacturer }}</p>
-    <p class="description">Artikelbeschreibung: {{ description }}</p>
-    <p class="netPrice">Nettopreis: {{ netPrice }} €</p>
+    <p class="manufacturer">Manufacturer: {{ manufacturer }}</p>
+    <p class="description">Description: {{ description }}</p>
+    <p class="netPrice">Price: {{ netPrice }} €</p>
     <p class="grossPrice">
-      Bruttopreis (incl. MwSt. ({{ vatRate }}%)): {{ grossPrice }} €
+      Price (incl. VAT. ({{ vatRate }}%)): {{ grossPrice }} €
     </p>
     <button class="buy" @click="onClick($event, title)"></button>
     <p v-if="shoppingCart.length != 0" class="shoppingCart">
-      Dieser Artikel befindet sich {{ shoppingCart.length }} Mal im Warenkorb.
+      This article is already in your shopping cart ({{
+        shoppingCart.length
+      }}x).
     </p>
   </div>
 </template>
